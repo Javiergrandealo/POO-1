@@ -57,30 +57,30 @@ public class Jugador {
     }
 
     public static void darPuntuacion(String nombre, double puntuacion) {
-    if (puntuacion < -999999.0) {
-        System.out.println("Un jugador no puede tener una puntuación tan baja");
-        return;
-    }
-    for (int i = 0; i < jugadores.size(); i++) {
-        Jugador ju = jugadores.get(i);
-        
-        if (ju.getNombre().equalsIgnoreCase(nombre)) {
-            // Si encontramos al jugador, asignamos la nueva puntuación
-            ju.setPuntuacion(puntuacion);
-            System.out.println("Se le ha dado una puntuación de " + puntuacion + " al jugador " + ju.getNombre());
+        if (puntuacion < -999999.0) {
+            System.out.println("Un jugador no puede tener una puntuación tan baja");
             return;
         }
-    }
-    // Si llegamos aquí, significa que no encontramos al jugador
-    System.out.println("No existe ese jugador");
+        for (int i = 0; i < jugadores.size(); i++) {
+            Jugador ju = jugadores.get(i);
+
+            if (ju.getNombre().equalsIgnoreCase(nombre)) {
+                // Si encontramos al jugador, asignamos la nueva puntuación
+                ju.setPuntuacion(puntuacion);
+                System.out.println("Se le ha dado una puntuación de " + puntuacion + " al jugador " + ju.getNombre());
+                return;
+            }
+        }
+        // Si llegamos aquí, significa que no encontramos al jugador
+        System.out.println("No existe ese jugador");
     }
 
-    public static void mostrarJugadores(){
+    public static void mostrarJugadores() {
         for (int i = 0; i < jugadores.size(); i++) {
             Jugador jugador = jugadores.get(i);
-            System.out.println(jugador.getNombre()); 
+            System.out.println(jugador.getNombre());
         }
-        
+
     }
 
     public static void mostrarJugadoresPorPuntuacion() {
@@ -93,7 +93,7 @@ public class Jugador {
         });
         for (int i = 0; i < jugadores.size(); i++) {
             Jugador jugador = jugadores.get(i);
-            System.out.println("Nombre: "+jugador.getNombre() + " Puntuación: " + jugador.getPuntuacion());
+            System.out.println("Nombre: " + jugador.getNombre() + " Puntuación: " + jugador.getPuntuacion());
         }
     }
 }

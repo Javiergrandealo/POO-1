@@ -43,10 +43,10 @@ public class Main {
                 case 2:
                     System.out.println("¿Cual es el jugador que deasea dar de baja?");
                     String n = sc.nextLine();
-                    boolean a =Jugador.darBaja(n);
-                    if (a == false){
+                    boolean a = Jugador.darBaja(n);
+                    if (a == false) {
                         System.out.println("El jugador no existe");
-                    }else{
+                    } else {
                         System.out.println("Se ha dado de baja al jugador " + n);
                     }
                     break;
@@ -67,7 +67,7 @@ public class Main {
                     break;
 
                 case 6:
-                Emparejamiento.mostrarEmparejamientos();
+                    Emparejamiento.mostrarEmparejamientos();
                     break;
 
                 case 7:
