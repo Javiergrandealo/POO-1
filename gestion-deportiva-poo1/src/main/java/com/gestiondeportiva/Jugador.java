@@ -7,7 +7,7 @@ import java.util.Comparator;
 public class Jugador {
     private String nombre;
     private double puntuacion = 0.0;
-    ArrayList<Jugador> jugadores = new ArrayList<>();
+    static ArrayList<Jugador> jugadores = new ArrayList<>();
 
     public Jugador(String nombre, double puntuacion) {
         this.nombre = nombre;
@@ -26,7 +26,7 @@ public class Jugador {
         this.puntuacion = puntuacion;
     }
 
-    public boolean buscarJugador(String nombre) {
+    public static boolean buscarJugador(String nombre) {
         boolean p = false;
         for (int i = 0; i < jugadores.size(); i++) {
             Jugador a = jugadores.get(i);
@@ -40,7 +40,7 @@ public class Jugador {
         return p;
     }
 
-    public boolean darAlta(Jugador jugador) {
+    public static boolean darAlta(Jugador jugador) {
         boolean add = false;
         String nombre = jugador.getNombre();
         if (buscarJugador(nombre) == false) {
@@ -54,7 +54,7 @@ public class Jugador {
         }
     }
 
-    public boolean darBaja(String nombre) {
+    public static boolean darBaja(String nombre) {
         for (int i = 0; i < jugadores.size(); i++) {
             Jugador jugador = jugadores.get(i);
             if (jugador.getNombre().equalsIgnoreCase(nombre)) {
@@ -65,7 +65,7 @@ public class Jugador {
         return false;  //No se encontró al jugador
     }
 
-    public void darPuntuacion(String nombre, double puntuacion) {
+    public static void darPuntuacion(String nombre, double puntuacion) {
     if (puntuacion < -999999.0) {
         System.out.println("Un jugador no puede tener una puntuación tan baja");
         return;
@@ -84,7 +84,7 @@ public class Jugador {
     System.out.println("No existe ese jugador");
     }
 
-    public void mostrarJugadores(){
+    public static void mostrarJugadores(){
         for (int i = 0; i < jugadores.size(); i++) {
             Jugador jugador = jugadores.get(i);
             System.out.println(jugador.getNombre()); 
@@ -92,7 +92,7 @@ public class Jugador {
         
     }
 
-    public void mostrarJugadoresPorPuntuacion() {
+    public static void mostrarJugadoresPorPuntuacion() {
         // Ordenar los jugadores por puntuación
         Collections.sort(jugadores, new Comparator<Jugador>() {
             @Override
