@@ -16,6 +16,7 @@ public class Main {
         Jugador.darAlta(j4);
         Jugador j5 = new Jugador("Robert", 3.8);
         Jugador.darAlta(j5);
+        @SuppressWarnings("unused") //esto es para que quede bonito en el IDE, en verdad si que se usa.
         Emparejamiento e1 = new Emparejamiento();
         System.out.println("Bienvenido al sistema de gestion de jugadores. Que desea hacer");
         while (fin == false) {
