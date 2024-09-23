@@ -16,6 +16,7 @@ public class Main {
         Jugador.darAlta(j4);
         Jugador j5 = new Jugador("Robert", 3.8);
         Jugador.darAlta(j5);
+        Emparejamiento e1 = new Emparejamiento();
         System.out.println("Bienvenido al sistema de gestion de jugadores. Que desea hacer");
         while (fin == false) {
             System.out.println("1. Dar de alta un jugador");
@@ -42,8 +43,12 @@ public class Main {
                 case 2:
                     System.out.println("¿Cual es el jugador que deasea dar de baja?");
                     String n = sc.nextLine();
-                    Jugador.darBaja(n);
-                    System.out.println("Se ha dado de baja al jugador " + n);
+                    boolean a =Jugador.darBaja(n);
+                    if (a == false){
+                        System.out.println("El jugador no existe");
+                    }else{
+                        System.out.println("Se ha dado de baja al jugador " + n);
+                    }
                     break;
                 case 3:
                     Jugador.mostrarJugadores();

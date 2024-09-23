@@ -27,42 +27,33 @@ public class Jugador {
     }
 
     public static boolean buscarJugador(String nombre) {
-        boolean p = false;
         for (int i = 0; i < jugadores.size(); i++) {
             Jugador a = jugadores.get(i);
-            if (a.getNombre().equalsIgnoreCase(nombre)) { // hay un juagdor con el mismo nombre
-                return p;
-            } else {
-                p = true;
-                return p;
+            if (a.getNombre().equalsIgnoreCase(nombre)) {
+                return true; // Jugador encontrado
             }
         }
-        return p;
+        return false; // Jugador no encontrado
     }
 
     public static boolean darAlta(Jugador jugador) {
-        boolean add = false;
         String nombre = jugador.getNombre();
-        if (buscarJugador(nombre) == false) {
-            System.out.println("No se puede añadir este jugador, ya hay uno con el mismo nombre");
-            return add;
-        } else {
+        if (!buscarJugador(nombre)) {
             jugadores.add(jugador);
-            add = true;
-            System.out.println("Se ha dado de alta el jugador " + nombre);
-            return add;
+            return true; // Jugador añadido con éxito
         }
+        return false; // Jugador ya existe
     }
 
     public static boolean darBaja(String nombre) {
         for (int i = 0; i < jugadores.size(); i++) {
-            Jugador jugador = jugadores.get(i);
-            if (jugador.getNombre().equalsIgnoreCase(nombre)) {
-                jugadores.remove(i);  //Eliminar el jugador encontrado
-                return true;
+            Jugador a = jugadores.get(i);
+            if (a.getNombre().equalsIgnoreCase(nombre)) {
+                jugadores.remove(i);
+                return true; // Jugador eliminado con éxito
             }
         }
-        return false;  //No se encontró al jugador
+        return false; // Jugador no encontrado
     }
 
     public static void darPuntuacion(String nombre, double puntuacion) {

@@ -12,6 +12,11 @@ public class Emparejamiento {
     }
 
     public static void mostrarEmparejamientos() {
+        if(emparejamientos.isEmpty()){
+            System.out.println("No hay emparejamientos.");
+            return;
+        }
+        
         for (int i = 0; i < emparejamientos.size(); i++) {
             String[] emparejamiento = emparejamientos.get(i);
             System.out.println(emparejamiento[0] + " - " + emparejamiento[1]);
@@ -19,7 +24,7 @@ public class Emparejamiento {
     }
 
     public static void crearEmparejamiento(String jugador1, String jugador2) {
-        if(!Jugador.buscarJugador(jugador1) && !Jugador.buscarJugador(jugador2)){
+        if(Jugador.buscarJugador(jugador1) && Jugador.buscarJugador(jugador2)){
             String[] emparejamiento = {jugador1, jugador2};
             emparejamientos.add(emparejamiento);
     }else{
