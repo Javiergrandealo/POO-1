@@ -79,11 +79,17 @@
                 <mxCell id="17" value="+ Emparejamiento(): " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="12">
                     <mxGeometry y="200" width="250" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#F0F0F0;" edge="1" parent="1" source="14" target="ljHHKFZJiycTz36-ZPhy-6">
+                <mxCell id="19" value="" style="html=1;fontFamily=Helvetica;fontSize=12;fontColor=#F0F0F0;" edge="1" parent="1" source="14" target="ljHHKFZJiycTz36-ZPhy-6">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" style="edgeStyle=none;html=1;entryX=0.789;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;fontColor=#F0F0F0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="20" target="18">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="24" style="html=1;entryX=0.789;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;fontColor=#F0F0F0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="20" target="18">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="190" y="270"/>
+                            <mxPoint x="170" y="230"/>
+                            <mxPoint x="158" y="200"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
