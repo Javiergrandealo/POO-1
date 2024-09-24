@@ -39,7 +39,14 @@ public class Main {
                     System.out.println("¿Cual es el nombre del jugador que desea dar de alta?");
                     String nombre = sc.nextLine();
                     Jugador j = new Jugador(nombre, 0.0);
-                    Jugador.darAlta(j);
+                    boolean dado =Jugador.darAlta(j);
+                    if(dado == true){
+                        System.out.println("Se ha dado de alta al jugador " + nombre);
+                        System.out.println();
+                    }else{
+                        System.out.println("El jugador ya existe");
+                        System.out.println();
+                    }
                     break;
                 case 2:
                     System.out.println("¿Cual es el jugador que deasea dar de baja?");
@@ -47,8 +54,10 @@ public class Main {
                     boolean a = Jugador.darBaja(n);
                     if (a == false) {
                         System.out.println("El jugador no existe");
+                        System.out.println();
                     } else {
                         System.out.println("Se ha dado de baja al jugador " + n);
+                        System.out.println();
                     }
                     break;
                 case 3:
