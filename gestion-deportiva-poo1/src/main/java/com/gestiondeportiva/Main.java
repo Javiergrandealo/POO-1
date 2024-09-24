@@ -16,87 +16,79 @@ public class Main {
         Jugador.darAlta(j4);
         Jugador j5 = new Jugador("Robert", 3.8);
         Jugador.darAlta(j5);
-        @SuppressWarnings("unused") //esto es para que quede bonito en el IDE, en verdad si que se usa.
+        @SuppressWarnings("unused") // esto es para que quede bonito en el IDE, en verdad si que se usa.
         Emparejamiento e1 = new Emparejamiento();
         System.out.println("Bienvenido al sistema de gestion de jugadores. Que desea hacer");
         while (fin == false) {
-            System.out.println("1. Dar de alta un jugador");
-            System.out.println("2. Dar baja jugador");
-            System.out.println("3. Mostrar jugadores");
-            System.out.println("4. Establecer una puntuacion a un jugador");
-            System.out.println("5. Rankear jugadores");
-            System.out.println("6. Mostrar emparejamientos");
-            System.out.println("7. Borrar emparejamiento");
-            System.out.println("8. Crear emparejamiento");
-            System.out.println("9. Emparejamiento aleatorio");
-            System.out.println("Cualquier otra tecla hace que la ejecución del programa se detenga");
-            System.out.println("Elija una opcion: ");
+            System.out.println("create <nombre> -> Dar de alta un jugador");
+            System.out.println("remove <nombre> -> Dar de baja un jugador");
+            System.out.println("show -> Mostrar todos los jugadores");
+            System.out.println("score <nombre;puntuacion> -> Dar puntuacion a un jugador");
+            System.out.println("rank -> Mostrar jugadores ordenados por puntuacion");
+            System.out.println("show_matchmake -> Mostrar emparejamientos");
+            System.out.println("clear_matchmake -> Borrar emparejamientos");
+            System.out.println("matchmake <nombre1;nombre2> -> Crear emparejamiento");
+            System.out.println("random_matchmake -> Emparejar aleatoriamente");
+            System.out.println("exit -> Salir del programa");
             System.out.println("-----------------------------------------------");
-            int opcion = sc.nextInt();
-            sc.nextLine();
+            System.out.println();
+            System.out.println(">");
+            String opcion = sc.next();
             switch (opcion) {
-                case 1:
-                    System.out.println("¿Cual es el nombre del jugador que desea dar de alta?");
-                    String nombre = sc.nextLine();
+                case "create":
+                    String nombre = sc.next();
                     Jugador j = new Jugador(nombre, 0.0);
-                    boolean dado =Jugador.darAlta(j);
-                    if(dado == true){
+                    boolean dado = Jugador.darAlta(j);
+                    if (dado) {
                         System.out.println("Se ha dado de alta al jugador " + nombre);
-                        System.out.println();
-                    }else{
+                    } else {
                         System.out.println("El jugador ya existe");
-                        System.out.println();
                     }
                     break;
-                case 2:
-                    System.out.println("¿Cual es el jugador que deasea dar de baja?");
-                    String n = sc.nextLine();
+                case "remove":
+                    String n = sc.next();
                     boolean a = Jugador.darBaja(n);
-                    if (a == false) {
-                        System.out.println("El jugador no existe");
-                        System.out.println();
-                    } else {
+                    if (a) {
                         System.out.println("Se ha dado de baja al jugador " + n);
                         System.out.println();
+                    } else {
+                        System.out.println("El jugador no existe");
+                        System.out.println();
                     }
                     break;
-                case 3:
+                case "show":
                     Jugador.mostrarJugadores();
                     break;
-
-                case 4:
-                    System.out.println("¿A que jugador quieres darle puntuacion?");
-                    String n2 = sc.nextLine();
-                    System.out.println("¿Que puntuación quieres darle?");
-                    double puntuacion = sc.nextDouble();
+                case "score":
+                    String nombres1 = sc.next();
+                    String n2 = nombres1.split(";")[0];
+                    double puntuacion = Double.parseDouble(nombres1.split(";")[1]);
                     Jugador.darPuntuacion(n2, puntuacion);
                     break;
-
-                case 5:
+                case "rank":
                     Jugador.mostrarJugadoresPorPuntuacion();
                     break;
-
-                case 6:
+                case "show_matchmake":
                     Emparejamiento.mostrarEmparejamientos();
                     break;
-
-                case 7:
+                case "clear_matchmake":
                     Emparejamiento.borrarEmparejamientos();
                     break;
-
-                case 8:
-                    System.out.println("¿Cual es el nombre del primer jugador?");
-                    String jugador1 = sc.nextLine();
-                    System.out.println("¿Cual es el nombre del segundo jugador?");
-                    String jugador2 = sc.nextLine();
+                case "matchmake":
+                    String nombres2 = sc.next();
+                    String jugador1 = nombres2.split(";")[0];
+                    String jugador2 = nombres2.split(";")[1];
                     Emparejamiento.crearEmparejamiento(jugador1, jugador2);
                     break;
-                case 9:
+                case "random_matchmake":
                     Emparejamiento.emparejarAleatoriamente();
                     break;
-                default:
-                    System.out.println("No ha elegido una opcion valida. Fin de la ejecución");
+                case "exit":
+                    System.out.println("Fin de la ejecución.");
                     fin = true;
+                    break;
+                default:
+                    System.out.println("No ha elegido una opcion valida.");
                     break;
             }
         }
