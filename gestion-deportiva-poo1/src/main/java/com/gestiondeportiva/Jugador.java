@@ -37,12 +37,13 @@ public class Jugador {
     }
 
     public static boolean darAlta(Jugador jugador) {
+        boolean alta = false;
         String nombre = jugador.getNombre();
         if (!buscarJugador(nombre)) {
             jugadores.add(jugador);
-            return true; // Jugador añadido con éxito
+            alta = true; // Jugador añadido con éxito
         }
-        return false; // Jugador ya existe
+        return alta; // Jugador ya existe
     }
 
     public static boolean darBaja(String nombre) {
@@ -63,7 +64,6 @@ public class Jugador {
         }
         for (int i = 0; i < jugadores.size(); i++) {
             Jugador ju = jugadores.get(i);
-
             if (ju.getNombre().equalsIgnoreCase(nombre)) {
                 // Si encontramos al jugador, asignamos la nueva puntuación
                 ju.setPuntuacion(puntuacion);
