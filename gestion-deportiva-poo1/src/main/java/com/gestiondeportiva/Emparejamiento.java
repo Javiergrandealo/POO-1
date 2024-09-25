@@ -12,24 +12,19 @@ public class Emparejamiento {
     }
 
     public static void mostrarEmparejamientos() {
-        if (emparejamientos.isEmpty()) {
-            System.out.println("No hay emparejamientos.");
-            return;
-        }
-
-        for (int i = 0; i < emparejamientos.size(); i++) {
+        if (!emparejamientos.isEmpty()) {
+            for (int i = 0; i < emparejamientos.size(); i++) {
             String[] emparejamiento = emparejamientos.get(i);
             System.out.println(emparejamiento[0] + " - " + emparejamiento[1]);
-        }
+            }
+        } else System.out.println("No hay emparejamientos.");
     }
 
     public static void crearEmparejamiento(String jugador1, String jugador2) {
         if (Jugador.buscarJugador(jugador1) && Jugador.buscarJugador(jugador2)) {
             String[] emparejamiento = { jugador1, jugador2 };
             emparejamientos.add(emparejamiento);
-        } else {
-            System.out.println("No se puede emparejar.");
-        }
+        } else System.out.println("No se puede emparejar.");
     }
 
     public static void borrarEmparejamientos() {
@@ -38,15 +33,12 @@ public class Emparejamiento {
 
     public static void emparejarAleatoriamente() {
         List<Jugador> jugadores = Jugador.jugadores;
-        if (jugadores.size() % 2 != 0) {
-            System.out.println("No se pueden emparejar todos los jugadores, el número de jugadores es impar.");
-            return;
-        }
-
-        Collections.shuffle(jugadores);
-        emparejamientos.clear();
-        for (int i = 0; i < jugadores.size(); i += 2) {
-            emparejamientos.add(new String[] { jugadores.get(i).getNombre(), jugadores.get(i + 1).getNombre() });
-        }
+        if (jugadores.size() % 2 == 0) {
+            Collections.shuffle(jugadores);
+            emparejamientos.clear();
+            for (int i = 0; i < jugadores.size(); i += 2) {
+                emparejamientos.add(new String[] { jugadores.get(i).getNombre(), jugadores.get(i + 1).getNombre() });
+            }
+        } else System.out.println("No se pueden emparejar todos los jugadores, el número de jugadores es impar.");
     }
 }
