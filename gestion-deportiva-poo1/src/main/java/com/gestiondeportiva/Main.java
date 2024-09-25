@@ -41,8 +41,10 @@ public class Main {
                     boolean dado = Jugador.darAlta(j);
                     if (dado) {
                         System.out.println("Se ha dado de alta al jugador " + nombre);
+                        System.out.println();
                     } else {
                         System.out.println("El jugador ya existe");
+                        System.out.println();
                     }
                     break;
                 case "remove":
