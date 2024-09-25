@@ -91,7 +91,7 @@ public class Jugador {
                 return Double.compare(j1.getPuntuacion(), j2.getPuntuacion());
             }
         });
-        for (int i = 0; i < jugadores.size(); i++) {
+        for (int i = jugadores.size(); i >=0; i--) {
             Jugador jugador = jugadores.get(i);
             System.out.println("Nombre: " + jugador.getNombre() + " Puntuación: " + jugador.getPuntuacion());
         }
